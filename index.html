@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <form>
+        <label for="numero1">Ingrese número 1:</label>
+        <input type="number" id="numero1" name="numero1" required><br><br>
+        
+        <label for="numero2">Ingrese número 2:</label>
+        <input type="number" id="numero2" name="numero2" required><br><br>
+
+        <button type="button" onclick="realizarOperaciones()">Realizar Operaciones</button>
+    </form>
+
+    <h2>Resultados</h2>
+    <p id="resultado"></p>
+
+    <script>
+        function realizarOperaciones() {
+            let num1 = parseFloat(document.getElementById('numero1').value);
+            let num2 = parseFloat(document.getElementById('numero2').value);
+            let resultado = '';
+            let i = 0;
+
+            do {
+                switch (i) {
+                    case 0:
+                        resultado += 'Suma: ' + (num1 + num2) + '<br>';
+                        break;
+                    case 1:
+                        resultado += 'Resta: ' + (num1 - num2) + '<br>';
+                        break;
+                    case 2:
+                        resultado += 'Multiplicación: ' + (num1 * num2) + '<br>';
+                        break;
+                    case 3:
+                        resultado += 'División: ' + (num1 / num2) + '<br>';
+                        break;
+                    case 4:
+                        resultado += 'Módulo: ' + (num1 % num2) + '<br>';
+                        break;
+                }
+                i++;
+            } while (i < 5);
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>
